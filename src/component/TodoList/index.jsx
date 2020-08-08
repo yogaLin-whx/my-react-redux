@@ -8,14 +8,13 @@ class TodoList extends React.Component {
             <>
                 {
                     this.props.itemList.map((item, index) => {
-                        return <TodoItem item={item} key={index} />
+                        return <TodoItem item={item} key={index} index={index} />
                     })
                 }
             </>
         );
     }
 }
-
 
 
 const mapStateToProps = state => {
