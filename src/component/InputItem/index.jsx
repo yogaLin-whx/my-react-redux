@@ -17,7 +17,6 @@ class InputItem extends React.Component {
     }
 
     handleAddItem = () => {
-        console.log("InputItem" + this.state.inputValue)
         this.props.handleAddItem(this.state.inputValue);
     }
 

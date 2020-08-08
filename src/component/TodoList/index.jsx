@@ -18,9 +18,7 @@ class TodoList extends React.Component {
 
 
 const mapStateToProps = state => {
-    return {
-        itemList: state.itemList
-    }
+    return { itemList: state.itemList }
 }
 
 export default connect(mapStateToProps)(TodoList);

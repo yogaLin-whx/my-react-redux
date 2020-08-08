@@ -4,12 +4,21 @@ const initialize = {
 function reducer(state = initialize, action) {
     switch (action.type) {
         case ("addItem"):
-            console.log(action.type);
-            console.log(action.content);
-            return { itemList: [...state.itemList, { content: action.content }] }
-        case("deleteItem"):
-            console.log(action.index);
-            return {itemList: state.itemList.filter((item,index) => index !== action.index)}
+            return { itemList: [...state.itemList, { content: action.content, status: false }] }
+        case ("deleteItem"):
+            return { itemList: state.itemList.filter((item, index) => index !== action.index) }
+        case ("mark"):
+            return {
+                itemList: state.itemList.map((item, index) => {
+                    if (index === action.index) {
+                        item.status = !item.status;
+                        console.log("status" + item.status);
+                        return item;
+                    } else {
+                        return item
+                    }
+                })
+            }
         default:
             return state
     }
