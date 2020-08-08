@@ -6,7 +6,7 @@ class TodoContainer extends React.Component {
     render() {
         return (
             <>
-                <InputItem />
+                <InputItem /><br />
                 <TodoList />
             </>
         )

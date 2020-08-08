@@ -1,14 +1,41 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class InputItem extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            inputValue: ""
+        }
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            inputValue: e.target.value
+        })
+    }
+
+    handleAddItem = () => {
+        console.log("InputItem" + this.state.inputValue)
+        this.props.handleAddItem(this.state.inputValue);
+    }
 
     render() {
         return (
             <>
-                <input /><button>Add</button>
+                <input placeholder="inset todo item" onChange={this.handleChange.bind(this)} /><button onClick={this.handleAddItem}>Add</button>
             </>
         )
     }
 }
 
-export default InputItem;
+
+const mapStateToProps = state => {
+    return {}
+}
+const mapDispatchToProps = dispatch => ({
+    handleAddItem: (content) => dispatch({ type: "addItem", content: content })
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(InputItem);

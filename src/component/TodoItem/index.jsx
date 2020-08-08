@@ -4,11 +4,10 @@ class TodoItem extends React.Component {
     render() {
         return (
             <>
-                <label></label>
+                <label>{this.props.item.content}</label>
             </>
         )
     }
 }
-
 
 export default TodoItem;
