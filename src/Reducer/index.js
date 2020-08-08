@@ -1,12 +1,12 @@
-const initialize ={
-    todoList=[]
+const initialize = {
+    itemList: [],
+    loading: false,
 }
-
-function reducer(state=initialize,action){
-    switch(action.type){
+function reducer(state = initialize, action) {
+    switch (action.type) {
         default:
-            return state;
+            return state
     }
 }
 
-export default  reducer;
+export default reducer;
