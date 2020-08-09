@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 class InputItem extends React.Component {
 
@@ -17,10 +16,12 @@ class InputItem extends React.Component {
     }
 
     handleAddItem = () => {
-        this.props.handleAddItem(this.state.inputValue);
-        this.setState({
-            inputValue: ''
-        })
+        if(this.state.inputValue !== ''){
+            this.props.addItem(this.state.inputValue);
+            this.setState({
+                inputValue: ''
+            })
+        }
     }
 
     render() {
@@ -32,12 +33,4 @@ class InputItem extends React.Component {
     }
 }
 
-
-const mapStateToProps = state => {
-    return {}
-}
-const mapDispatchToProps = dispatch => ({
-    handleAddItem: (content) => dispatch({ type: "addItem", content: content })
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(InputItem);
+export default InputItem;

@@ -1,14 +1,22 @@
 import React from 'react';
 import TodoItem from '../TodoItem';
-import { connect } from 'react-redux';
 
 class TodoList extends React.Component {
+
+    handleDeleteItem = (index) => {
+        this.props.deleteItem(index);
+    }
+
+    handleMark = (index) => {
+        this.props.mark(index);
+    }
+
     render() {
         return (
             <>
                 {
                     this.props.itemList.map((item, index) => {
-                        return <TodoItem item={item} key={index} index={index} />
+                        return <TodoItem item={item} key={item.index} index={item.index} deleteItem={this.handleDeleteItem} mark={this.handleMark} />
                     })
                 }
             </>
@@ -16,9 +24,4 @@ class TodoList extends React.Component {
     }
 }
 
-
-const mapStateToProps = state => {
-    return { itemList: state.itemList }
-}
-
-export default connect(mapStateToProps)(TodoList);
+export default TodoList;

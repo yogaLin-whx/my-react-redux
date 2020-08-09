@@ -1,11 +1,14 @@
 import React from 'react';
 import './App.css';
-import TodoContainer from './component/TodoContainer';
+import { HashRouter } from 'react-router-dom';
+import ItemMenu from './component/ItemMenu';
 
 function App() {
   return (
     <div className="App">
-      <TodoContainer />
+      <HashRouter>
+        <ItemMenu></ItemMenu>
+      </HashRouter>
     </div>
   );
 }
