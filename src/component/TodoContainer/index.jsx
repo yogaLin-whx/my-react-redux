@@ -10,10 +10,12 @@ class TodoContainer extends React.Component {
     }
 
     handleDeleteItem = (index) => {
+        console.log("delete" + index);
         this.props.deleteItem(index);
     }
     
     handleMark = (index) => {
+        console.log("mark" + index);
         this.props.mark(index);
     }
 

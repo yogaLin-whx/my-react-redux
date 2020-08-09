@@ -5,19 +5,18 @@ import { connect } from 'react-redux';
 class DoneList extends React.Component {
 
     handleDeleteItem = (index) => {
-        console.log(index)
+        console.log("adfadf dsf ads f");
         this.props.deleteItem(index);
     }
-    
+
     handleMark = (index) => {
-        console.log(index+ "mark");
         this.props.mark(index);
     }
 
     render() {
         return (
             <>
-                <TodoList itemList={this.props.itemList} deleteItem={this.handleDeleteItem}  mark={this.handleMark} />
+                <TodoList itemList={this.props.itemList} deleteItem={this.handleDeleteItem} mark={this.handleMark} />
             </>
         )
     }
@@ -32,4 +31,4 @@ const mapDispatchToProps = dispatch => ({
     mark: (index) => dispatch({ type: "mark", index: index })
 })
 
-export default connect(mapStateToProps,mapDispatchToProps)(DoneList);
+export default connect(mapStateToProps, mapDispatchToProps)(DoneList);
